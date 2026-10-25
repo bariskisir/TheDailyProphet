@@ -1,0 +1,53 @@
+@use '@/styles/abstracts/tokens' as *;
+@use '@/styles/abstracts/functions' as *;
+
+@mixin pocket {
+  :where(.newspaper--pocket) & {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin paper-texture($edge-strength: 1) {
+  background-color: $paper;
+  background-image:
+    url('/textures/paper-grain.svg'),
+    radial-gradient(ellipse at 18% 12%, rgba(150, 118, 64, 0.16) 0%, transparent 34%),
+    radial-gradient(ellipse at 84% 78%, rgba(140, 110, 60, 0.18) 0%, transparent 38%),
+    radial-gradient(circle at 70% 22%, rgba(120, 92, 48, 0.08) 0%, transparent 12%),
+    radial-gradient(circle at 26% 82%, rgba(120, 92, 48, 0.1) 0%, transparent 9%),
+    linear-gradient(180deg, $paper-light 0%, $paper 45%, $paper-shade 100%);
+  background-size: 260px 260px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  box-shadow:
+    inset 0 0 calc(3em * #{$edge-strength}) rgba(110, 82, 40, 0.28),
+    inset 0 0 calc(0.6em * #{$edge-strength}) rgba(90, 64, 28, 0.35);
+}
+
+@mixin double-rule($side: bottom, $gap: 0.35) {
+  border-#{$side}: u(0.42) solid $ink;
+  padding-#{$side}: u($gap);
+  background-image: linear-gradient($ink, $ink);
+  background-repeat: no-repeat;
+  background-size: 100% u(0.12);
+  background-position: #{$side} 0 left 0;
+}
+
+@mixin caps-label($size: 1.4) {
+  font-family: $font-caps;
+  font-size: u($size);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

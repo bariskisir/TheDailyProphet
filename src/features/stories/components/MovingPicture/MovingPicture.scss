@@ -1,0 +1,276 @@
+@use '@/styles/abstracts' as *;
+
+.picture {
+  --pic-ar: 1.7778;
+  --pic-max-h: #{u(26)};
+  --pic-delay: 0s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  margin: 0 0 u(1.1);
+
+  &__frame {
+    position: relative;
+    flex: none;
+
+    width: min(100%, calc(var(--pic-max-h) * var(--pic-ar)));
+    padding: u(0.45);
+    border: u(0.22) solid $ink;
+    outline: u(0.1) solid $ink;
+    outline-offset: u(0.35);
+    margin: u(0.45) auto;
+    background: rgba(26, 23, 18, 0.08);
+    box-sizing: border-box;
+  }
+
+  &__plate {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #bdb39b;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      background:
+        radial-gradient(ellipse at center, transparent 48%, rgba(20, 16, 10, 0.52) 100%),
+        url('/textures/paper-grain.svg');
+      background-size: 100% 100%, 180px 180px;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transform-origin: center center;
+    will-change: transform, filter;
+
+    filter: grayscale(1) contrast(1.15) brightness(0.95);
+    mix-blend-mode: multiply;
+    transition: opacity 500ms ease;
+
+    .is-loaded & {
+      opacity: 1;
+    }
+  }
+
+  &__ghost {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 0;
+    filter: grayscale(1) contrast(1.25) brightness(0.98);
+    mix-blend-mode: multiply;
+    will-change: transform, opacity;
+
+    .is-loaded & {
+      animation: wizarding-ghost 4.2s steps(10) infinite;
+      animation-delay: var(--pic-delay);
+    }
+  }
+
+  &__caption {
+    flex: none;
+    width: 100%;
+    margin-top: u(0.5);
+    font-family: $font-body;
+    font-style: italic;
+    font-size: u(1.35);
+    line-height: 1.2;
+    text-align: center;
+    color: $ink-soft;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &--motion-0 &__image {
+    animation:
+      wizarding-move-0 6.8s ease-in-out infinite alternate,
+      picture-flicker 2.8s steps(2) infinite;
+    animation-delay: var(--pic-delay);
+  }
+
+  &--motion-1 &__image {
+    animation:
+      wizarding-move-1 7.4s ease-in-out infinite alternate,
+      picture-flicker 3.1s steps(2) infinite;
+    animation-delay: var(--pic-delay);
+  }
+
+  &--motion-2 &__image {
+    animation:
+      wizarding-move-2 6.2s ease-in-out infinite alternate,
+      picture-flicker 2.6s steps(2) infinite;
+    animation-delay: var(--pic-delay);
+  }
+
+  &--motion-3 &__image {
+    animation:
+      wizarding-move-3 7.8s ease-in-out infinite alternate,
+      picture-flicker 3.4s steps(2) infinite;
+    animation-delay: var(--pic-delay);
+  }
+
+  &--hero {
+    --pic-max-h: #{u(54)};
+  }
+
+  &--hero &__caption {
+    font-size: u(1.5);
+  }
+
+  &--large {
+    --pic-max-h: #{u(38)};
+  }
+
+  &--medium {
+    --pic-max-h: #{u(26)};
+  }
+
+  &--small {
+    --pic-max-h: #{u(18)};
+  }
+
+  &--small &__frame {
+    padding: u(0.3);
+    outline-offset: u(0.25);
+  }
+
+  @include pocket {
+    margin: 0 0 u(0.9);
+
+    &__caption {
+      font-size: u(1.85);
+      margin-top: u(0.4);
+    }
+
+    &--hero {
+      --pic-max-h: #{u(44)};
+    }
+
+    &--large {
+      --pic-max-h: #{u(48)};
+    }
+
+    &--medium {
+      --pic-max-h: #{u(36)};
+    }
+
+    &--small {
+      --pic-max-h: #{u(30)};
+    }
+  }
+
+  @include reduced-motion {
+    &__image,
+    &__ghost {
+      animation: none !important;
+    }
+  }
+}
+
+@keyframes wizarding-move-0 {
+  0% {
+    transform: scale(1.08) translate3d(-3.5%, -2%, 0) rotate(-0.8deg);
+  }
+  35% {
+    transform: scale(1.16) translate3d(2.5%, -1%, 0) rotate(0.5deg);
+  }
+  70% {
+    transform: scale(1.13) translate3d(-1.5%, 2.5%, 0) rotate(-0.4deg);
+  }
+  100% {
+    transform: scale(1.2) translate3d(3.5%, 1.5%, 0) rotate(0.9deg);
+  }
+}
+
+@keyframes wizarding-move-1 {
+  0% {
+    transform: scale(1.18) translate3d(3.5%, -2.5%, 0) rotate(0.7deg);
+  }
+  40% {
+    transform: scale(1.1) translate3d(-2.5%, 1.5%, 0) rotate(-0.6deg);
+  }
+  75% {
+    transform: scale(1.17) translate3d(1.5%, 2.5%, 0) rotate(0.4deg);
+  }
+  100% {
+    transform: scale(1.09) translate3d(-3.5%, -1.5%, 0) rotate(-0.8deg);
+  }
+}
+
+@keyframes wizarding-move-2 {
+  0% {
+    transform: scale(1.09) translate3d(0%, -3%, 0) rotate(-0.5deg);
+  }
+  50% {
+    transform: scale(1.19) translate3d(-3%, 1.5%, 0) rotate(0.8deg);
+  }
+  100% {
+    transform: scale(1.12) translate3d(3%, 2.5%, 0) rotate(-0.6deg);
+  }
+}
+
+@keyframes wizarding-move-3 {
+  0% {
+    transform: scale(1.16) translate3d(-3%, 2%, 0) rotate(0.6deg);
+  }
+  45% {
+    transform: scale(1.08) translate3d(2.5%, -2%, 0) rotate(-0.7deg);
+  }
+  100% {
+    transform: scale(1.2) translate3d(-2%, -2.5%, 0) rotate(0.5deg);
+  }
+}
+
+@keyframes wizarding-ghost {
+  0%,
+  72%,
+  100% {
+    opacity: 0;
+    transform: scale(1.12) translate3d(0, 0, 0);
+  }
+  76% {
+    opacity: 0.24;
+    transform: scale(1.17) translate3d(1.8%, -1.2%, 0) rotate(0.6deg);
+  }
+  82% {
+    opacity: 0.16;
+    transform: scale(1.15) translate3d(-1.6%, 1%, 0) rotate(-0.5deg);
+  }
+  88% {
+    opacity: 0;
+  }
+}
+
+@keyframes picture-flicker {
+  0%,
+  100% {
+    filter: grayscale(1) contrast(1.15) brightness(0.95);
+  }
+  28% {
+    filter: grayscale(1) contrast(1.22) brightness(0.9);
+  }
+  32% {
+    filter: grayscale(1) contrast(1.08) brightness(1.02);
+  }
+  67% {
+    filter: grayscale(1) contrast(1.18) brightness(0.93);
+  }
+}

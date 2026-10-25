@@ -1,0 +1,43 @@
+@use '@/styles/abstracts' as *;
+
+.sheet {
+  @include paper-texture;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: $ink;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &--left::after {
+    background: linear-gradient(to left, rgba(60, 42, 18, 0.32) 0%, rgba(60, 42, 18, 0.1) 3%, transparent 9%);
+  }
+
+  &--right::after {
+    background: linear-gradient(to right, rgba(60, 42, 18, 0.32) 0%, rgba(60, 42, 18, 0.1) 3%, transparent 9%);
+  }
+
+  &--single::after {
+    background: linear-gradient(to right, rgba(60, 42, 18, 0.14) 0%, transparent 4%);
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: u(3.4) u(3.6) u(3);
+  }
+
+  @include pocket {
+    &__content {
+      padding: u(2.8) u(3) u(2.4);
+    }
+  }
+}

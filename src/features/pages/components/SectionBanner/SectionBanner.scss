@@ -1,0 +1,33 @@
+@use '@/styles/abstracts' as *;
+
+.section-banner {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: u(1.5);
+  margin-bottom: u(1.6);
+
+  &__flourish {
+    flex: 1 1 0;
+    max-width: u(16);
+    color: $ink;
+  }
+
+  &__title {
+    font-family: $font-caps;
+    font-weight: 400;
+    font-size: u(3.4);
+    letter-spacing: 0.06em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  @include pocket {
+    margin-bottom: u(1.2);
+
+    &__title {
+      font-size: u(3.7);
+    }
+  }
+}

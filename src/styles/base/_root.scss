@@ -1,0 +1,35 @@
+@use '@/styles/abstracts' as *;
+
+:root {
+  color-scheme: dark;
+  --paper: #{$paper};
+  --ink: #{$ink};
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: $desk-dark;
+  color: $ink;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+}
+
+::selection {
+  background: rgba(26, 23, 18, 0.85);
+  color: $paper;
+}
+
+:focus-visible {
+  outline: 2px dashed $brass-light;
+  outline-offset: 3px;
+}

@@ -1,0 +1,168 @@
+@use '@/styles/abstracts' as *;
+
+.inner-page {
+  &__rule {
+    flex: none;
+    width: 100%;
+    height: u(1.4);
+    margin: u(0.6) 0;
+    color: $ink;
+  }
+
+  &__grid {
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+
+    &--feature {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap: u(2);
+    }
+
+    &--trio {
+      gap: u(0.8);
+    }
+
+    &--mosaic {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: u(2);
+    }
+
+    &--mobile-solo,
+    &--mobile-duo {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      gap: u(0.4);
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding-right: u(1.8);
+    border-right: u(0.12) solid $ink;
+
+    > .story {
+      flex: 1;
+    }
+  }
+
+  &__rail {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: u(0.8);
+
+    > .story:first-child {
+      flex: 1.35 1 0;
+    }
+
+    > .story:last-child,
+    > .advert {
+      flex: 1 1 0;
+    }
+  }
+
+  &__top-row {
+    flex: 1.45 1 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: u(2);
+  }
+
+  &__bottom-row {
+    flex: 1 1 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: u(2);
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+
+    &--wide {
+      padding-right: u(1.8);
+      border-right: u(0.12) solid $ink;
+    }
+
+    > .story {
+      flex: 1;
+    }
+  }
+
+  &__mosaic-left {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding-right: u(1.8);
+    border-right: u(0.12) solid $ink;
+
+    > .story:first-child {
+      flex: 1.55 1 0;
+    }
+
+    > .story:last-child {
+      flex: 1 1 0;
+    }
+  }
+
+  &__mosaic-right {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: u(1.2);
+
+    > .story:first-child {
+      flex: 1.25 1 0;
+    }
+
+    > .story:last-child,
+    > .advert {
+      flex: 1 1 0;
+      padding-top: u(1);
+      border-top: u(0.12) solid $ink;
+    }
+  }
+
+  &__mobile-top {
+    flex: 1.6 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+
+    > .story {
+      flex: 1 1 0;
+    }
+  }
+
+  &__mobile-bottom {
+    flex: 0.78 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+
+    > .story,
+    > .advert {
+      flex: 1 1 0;
+    }
+  }
+
+  &--mobile-duo {
+    .inner-page__mobile-top {
+      flex: 1.55 1 0;
+    }
+
+    .inner-page__mobile-bottom {
+      flex: 0.85 1 0;
+    }
+  }
+}

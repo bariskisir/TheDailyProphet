@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '@/styles/abstracts/tokens' as *;
+
+@function u($amount) {
+  @return calc(var(--u) * #{$amount});
+}
+
+@function z($layer) {
+  @if not map.has-key($z-layers, $layer) {
+    @error 'Unknown z-index layer `#{$layer}`.';
+  }
+  @return map.get($z-layers, $layer);
+}

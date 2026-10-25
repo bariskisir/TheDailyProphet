@@ -1,0 +1,198 @@
+@use '@/styles/abstracts' as *;
+
+.back-page {
+  &__briefs {
+    flex: 1.25 1 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: u(1.6);
+  }
+
+  &__brief {
+    display: flex;
+    min-height: 0;
+    padding-right: u(1.4);
+    border-right: u(0.1) solid $ink-ghost;
+
+    &:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    > .story {
+      flex: 1;
+    }
+  }
+
+  &__divider {
+    flex: none;
+    width: 100%;
+    height: u(1.5);
+    margin: u(0.8) 0;
+    color: $ink;
+  }
+
+  &__lower {
+    flex: 1 1 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: u(1.8);
+  }
+
+  &__decrees {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: u(1.1) u(1.3);
+    border: u(0.24) solid $ink;
+    background: rgba(26, 23, 18, 0.03);
+  }
+
+  &__decrees-title {
+    @include double-rule(bottom, 0.3);
+    flex: none;
+    margin-bottom: u(0.8);
+    font-family: $font-headline;
+    font-weight: 400;
+    font-size: u(2.2);
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__decrees-list {
+    flex: 1 1 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: u(1.2);
+    overflow: hidden;
+  }
+
+  &__decree {
+    display: flex;
+    flex-direction: column;
+    gap: u(0.35);
+    padding-right: u(0.8);
+    border-right: u(0.1) solid $ink-ghost;
+    overflow: hidden;
+
+    &:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+
+  &__decree-num {
+    @include caps-label(1.05);
+    color: $ink-soft;
+  }
+
+  &__decree-head {
+    font-family: $font-display;
+    font-weight: 900;
+    font-size: u(1.65);
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  &__decree-body {
+    font-family: $font-body;
+    font-size: u(1.48);
+    line-height: 1.25;
+    text-align: justify;
+  }
+
+  &__colophon {
+    @include double-rule(top, 0.35);
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: u(1.4);
+    margin-top: u(1);
+    padding-top: u(0.8);
+  }
+
+  &__emblem {
+    flex: none;
+    width: u(6.5);
+    color: $ink;
+  }
+
+  &__colophon-body {
+    min-width: 0;
+    font-family: $font-text;
+    font-size: u(1.3);
+    line-height: 1.3;
+  }
+
+  &__colophon-head {
+    font-family: $font-caps;
+    font-size: u(1.4);
+    letter-spacing: 0.05em;
+  }
+
+  &__colophon-sources {
+    color: $ink-soft;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &--mobile {
+    .back-page__briefs {
+      flex: 1.15 1 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: u(1.5);
+    }
+
+    .back-page__divider {
+      height: u(1.3);
+      margin: u(0.55) 0;
+    }
+
+    .back-page__lower {
+      flex: 1 1 0;
+      grid-template-columns: 1.2fr 1fr;
+      gap: u(1.4);
+    }
+
+    .back-page__decrees-title {
+      font-size: u(2.1);
+      margin-bottom: u(0.6);
+    }
+
+    .back-page__decrees-list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: u(1);
+    }
+
+    .back-page__decree-num {
+      font-size: u(1.2);
+    }
+
+    .back-page__decree-head {
+      font-size: u(1.9);
+    }
+
+    .back-page__decree-body {
+      font-size: u(1.85);
+      line-height: 1.26;
+    }
+
+    .back-page__colophon {
+      margin-top: u(0.7);
+      padding-top: u(0.65);
+    }
+
+    .back-page__colophon-head {
+      font-size: u(1.65);
+    }
+
+    .back-page__colophon-body {
+      font-size: u(1.55);
+    }
+  }
+}

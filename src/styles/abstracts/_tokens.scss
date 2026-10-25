@@ -1,0 +1,30 @@
+$paper: #e8dfc8;
+$paper-light: #efe8d4;
+$paper-shade: #d4c7a6;
+$ink: #1a1712;
+$ink-soft: #37312a;
+$ink-faded: rgba(26, 23, 18, 0.62);
+$ink-ghost: rgba(26, 23, 18, 0.14);
+
+$desk-dark: #0d0906;
+$candle: rgba(255, 196, 120, 0.16);
+
+$brass: #b8945a;
+$brass-light: #e3c58c;
+
+$font-masthead: 'UnifrakturCook', 'Old English Text MT', 'Pirata One', serif;
+$font-headline: 'Abril Fatface', 'Playfair Display', 'Bodoni 72', Georgia, serif;
+$font-display: 'Playfair Display', 'Bodoni 72', Georgia, serif;
+$font-body: 'IM Fell English', 'Old Standard TT', Georgia, serif;
+$font-caps: 'IM Fell English SC', 'Playfair Display', Georgia, serif;
+$font-text: 'Old Standard TT', 'Times New Roman', Georgia, serif;
+
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+$z-layers: (
+  'base': 1,
+  'leaf': 10,
+  'hotspot': 20,
+  'controls': 50,
+  'overlay': 100,
+);

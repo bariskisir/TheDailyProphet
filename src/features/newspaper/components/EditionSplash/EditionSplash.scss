@@ -1,0 +1,87 @@
+@use '@/styles/abstracts' as *;
+
+.splash {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: $desk-dark;
+  background-image:
+    radial-gradient(ellipse at center, rgba(64, 42, 22, 0.5) 0%, #090604 75%),
+    url('/textures/wood-grain.svg');
+  background-size: 100% 100%, 400px 400px;
+
+  &__card {
+    @include paper-texture;
+    max-width: 540px;
+    width: 100%;
+    padding: 38px 32px;
+    border: 3px solid $ink;
+    outline: 1px solid $ink;
+    outline-offset: -8px;
+    text-align: center;
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.78);
+  }
+
+  &__emblem {
+    width: 84px;
+    margin: 0 auto 8px;
+    color: $ink;
+  }
+
+  &__title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  &__flourish {
+    width: 68px;
+    color: $ink;
+  }
+
+  &__title {
+    font-family: $font-masthead;
+    font-size: clamp(32px, 6vw, 48px);
+    line-height: 1;
+  }
+
+  &__message {
+    font-family: $font-display;
+    font-style: italic;
+    font-size: 18px;
+    color: $ink-soft;
+  }
+
+  &__hint {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid $ink-ghost;
+    font-family: $font-caps;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+
+  &__retry {
+    margin-top: 16px;
+    padding: 8px 20px;
+    border: 2px solid $ink;
+    background: rgba(26, 23, 18, 0.06);
+    color: $ink;
+    font-family: $font-caps;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease;
+
+    &:hover {
+      background: $ink;
+      color: $paper;
+    }
+  }
+}

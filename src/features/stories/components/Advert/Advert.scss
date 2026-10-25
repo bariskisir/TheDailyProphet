@@ -1,0 +1,100 @@
+@use '@/styles/abstracts' as *;
+
+.advert {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: u(0.6);
+  min-height: 0;
+  overflow: hidden;
+  padding: u(2.6) u(2.4);
+  border: u(0.2) solid $ink;
+  text-align: center;
+  background: rgba(26, 23, 18, 0.04);
+
+  &__corner {
+    position: absolute;
+    width: u(4);
+    height: u(4);
+    color: $ink;
+
+    &--tl {
+      top: u(0.5);
+      left: u(0.5);
+    }
+
+    &--tr {
+      top: u(0.5);
+      right: u(0.5);
+      transform: scaleX(-1);
+    }
+
+    &--bl {
+      bottom: u(0.5);
+      left: u(0.5);
+      transform: scaleY(-1);
+    }
+
+    &--br {
+      bottom: u(0.5);
+      right: u(0.5);
+      transform: scale(-1, -1);
+    }
+  }
+
+  &__label {
+    @include caps-label(1.05);
+    color: $ink-faded;
+  }
+
+  &__title {
+    font-family: $font-masthead;
+    font-size: u(3.8);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__tagline {
+    font-family: $font-display;
+    font-style: italic;
+    font-size: u(1.75);
+    line-height: 1.2;
+  }
+
+  &__body {
+    font-family: $font-text;
+    font-size: u(1.55);
+    line-height: 1.3;
+    max-width: 34em;
+  }
+
+  &__address {
+    @include caps-label(1.15);
+    padding-top: u(0.5);
+    border-top: u(0.1) solid $ink;
+  }
+
+  @include pocket {
+    padding: u(2) u(2.2);
+    gap: u(0.5);
+
+    &__label,
+    &__address {
+      font-size: u(1.45);
+    }
+
+    &__title {
+      font-size: u(4.4);
+    }
+
+    &__tagline {
+      font-size: u(2.1);
+    }
+
+    &__body {
+      font-size: u(1.9);
+    }
+  }
+}

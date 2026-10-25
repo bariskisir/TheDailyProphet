@@ -1,0 +1,44 @@
+@use '@/styles/abstracts' as *;
+
+.running-head {
+  @include double-rule(bottom, 0.35);
+  flex: none;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: baseline;
+  gap: u(2);
+  margin-bottom: u(1.2);
+
+  > :first-child {
+    justify-self: start;
+  }
+
+  > :last-child {
+    justify-self: end;
+  }
+
+  &__title {
+    font-family: $font-masthead;
+    font-weight: 700;
+    font-size: u(3.6);
+    line-height: 1.1;
+  }
+
+  &__date,
+  &__page {
+    @include caps-label(1.3);
+  }
+
+  @include pocket {
+    margin-bottom: u(1);
+
+    &__title {
+      font-size: u(4.2);
+    }
+
+    &__date,
+    &__page {
+      font-size: u(1.65);
+    }
+  }
+}

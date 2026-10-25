@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+.vite/
+*.log
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.env
+.env.*

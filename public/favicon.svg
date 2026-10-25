@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#e6dcc3"/>
+  <rect x="4" y="4" width="56" height="56" rx="7" fill="none" stroke="#1d1914" stroke-width="2"/>
+  <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="#1d1914" stroke-width="0.8"/>
+  <text x="32" y="47" text-anchor="middle" font-family="'UnifrakturCook','Old English Text MT',serif" font-weight="700" font-size="40" fill="#1d1914">P</text>
+</svg>
